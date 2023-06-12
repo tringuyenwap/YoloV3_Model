@@ -4,7 +4,7 @@ from __future__ import division, print_function
 
 import numpy as np
 import tensorflow as tf
-slim = tf.contrib.slim
+import tf_slim as slim
 
 def conv2d(inputs, filters, kernel_size, strides=1):
     def _fixed_padding(inputs, kernel_size):
@@ -83,7 +83,7 @@ def upsample_layer(inputs, out_shape):
     new_height, new_width = out_shape[1], out_shape[2]
     # NOTE: here height is the first
     # TODO: Do we need to set `align_corners` as True?
-    inputs = tf.image.resize_nearest_neighbor(inputs, (new_height, new_width), name='upsampled')
+    inputs = tf.compat.v1.image.resize_nearest_neighbor(inputs, (new_height, new_width), name='upsampled')
     return inputs
 
 
