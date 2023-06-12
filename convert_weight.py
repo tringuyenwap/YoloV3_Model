@@ -14,9 +14,9 @@ from utils.misc_utils import parse_anchors, load_weights
 
 num_class = 80
 img_size = 416
-weight_path = '/content/YOLOv3_TensorFlow/data/darknet_weights/yolov3.weights'
-save_path = '/content/YOLOv3_TensorFlow/data/darknet_weights/yolov3.ckpt'
-anchors = parse_anchors('/content/YOLOv3_TensorFlow/data/yolo_anchors.txt')
+weight_path = '/content/YoloV3_Model/data/darknet_weights/yolov3.weights'
+save_path = '/content/detection-video/models/yolov3/yolov3.ckpt'
+anchors = parse_anchors('/content/YoloV3_Model/data/yolo_anchors.txt')
 
 model = yolov3(80, anchors)
 with tf.compat.v1.Session() as sess:
