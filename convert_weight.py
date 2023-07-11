@@ -29,6 +29,11 @@ with tf.compat.v1.Session() as sess:
 
     load_ops = load_weights(tf.compat.v1.global_variables(scope='yolov3'), weight_path)
     sess.run(load_ops)
+
+    save_dir = os.path.dirname(save_path)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+
     saver.save(sess, save_path=save_path)
     print('TensorFlow model checkpoint has been saved to {}'.format(save_path))
 
